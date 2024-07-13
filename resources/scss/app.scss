@@ -1,0 +1,8 @@
+/*resources/scss/app.scss*/
+@import "~bootstrap/scss/bootstrap";
+// Import custom styles
+@import './partials/custom.scss';
+
+body {
+    background-color: white;
+}
