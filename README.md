@@ -12,6 +12,12 @@ Iniziate a definire le prime operazioni CRUD con le relative view:
 Bonus:
 creare il seeder per la tabella comics utilizzando il file in allegato.
 
+# Seconda Parte dell`Esercizio
+
+oggi lavorate sulla stessa repo di ieri e completate le operazioni CRUD.
+Bonus
+tramite javascript, quando l'utente clicca sul pulsante "delete", chiedere conferma della cancellazione, prima di eliminare l'elemento.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
