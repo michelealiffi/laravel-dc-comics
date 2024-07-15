@@ -16,6 +16,10 @@
 
     <div class="container comics-section">
         <h1 class="text-center my-4">Current Series</h1>
+        <div class="text-center my-4">
+            <a href="{{ route('comics.create') }}" class="btn btn-primary">Create New Comic</a>
+        </div>
+
         <div class="row">
             @foreach ($comics as $comic)
                 <div class="col-md-3 mb-4">
@@ -25,6 +29,13 @@
                             <h5 class="card-title">{{ $comic->title }}</h5>
                             <p class="card-text">{{ Str::limit($comic->description, 100) }}</p>
                             <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">View Details</a>
+                            <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST"
+                                class="d-inline delete-form">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

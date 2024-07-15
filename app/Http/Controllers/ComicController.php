@@ -18,7 +18,7 @@ class ComicController extends Controller
     public function show($id)
     {
         $comic = Comic::findOrFail($id);
-        return view('show', ['comic' => $comic]);
+        return view('comics.show', compact('comic'));
     }
     /**
      * Show the form for creating a new resource.
@@ -45,6 +45,34 @@ class ComicController extends Controller
 
         Comic::create($data);
 
+        return redirect()->route('index');
+    }
+
+    public function edit(Comic $comic)
+    {
+        return view('comics.edit', compact('comic'));
+    }
+
+    public function update(Request $request, Comic $comic)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'nullable',
+            'thumb' => 'required|url',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required|date',
+            'type' => 'required',
+        ]);
+
+        $comic->update($data);
+
+        return redirect()->route('index');
+    }
+
+    public function destroy(Comic $comic)
+    {
+        $comic->delete();
         return redirect()->route('index');
     }
 }

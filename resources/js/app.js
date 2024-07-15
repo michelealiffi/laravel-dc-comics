@@ -1,4 +1,5 @@
 import "./bootstrap";
+import './deleteConfirmation';
 
 //file scss di default
 import "~resources/scss/app.scss";
