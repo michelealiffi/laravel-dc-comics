@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -13,11 +15,11 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view('index', ['comics' => $comics]);
+        return view('index', compact('comics'));
     }
-    public function show($id)
+
+    public function show(Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
         return view('comics.show', compact('comic'));
     }
     /**
@@ -31,21 +33,11 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $data = $request->validate([
-            'title' => 'required',
-            'description' => 'nullable',
-            'thumb' => 'required|url',
-            'price' => 'required',
-            'series' => 'required',
-            'sale_date' => 'required|date',
-            'type' => 'required',
-        ]);
-
+        $data = $request->validated();
         Comic::create($data);
-
-        return redirect()->route('index');
+        return redirect()->route('comics.index')->with('success', 'Comic created successfully.');
     }
 
     public function edit(Comic $comic)
@@ -53,26 +45,16 @@ class ComicController extends Controller
         return view('comics.edit', compact('comic'));
     }
 
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $data = $request->validate([
-            'title' => 'required',
-            'description' => 'nullable',
-            'thumb' => 'required|url',
-            'price' => 'required',
-            'series' => 'required',
-            'sale_date' => 'required|date',
-            'type' => 'required',
-        ]);
-
+        $data = $request->validated();
         $comic->update($data);
-
-        return redirect()->route('index');
+        return redirect()->route('comics.index')->with('success', 'Comic updated successfully.');
     }
 
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('index');
+        return redirect()->route('comics.index')->with('success', 'Comic deleted successfully.');
     }
 }

@@ -18,6 +18,15 @@ oggi lavorate sulla stessa repo di ieri e completate le operazioni CRUD.
 Bonus
 tramite javascript, quando l'utente clicca sul pulsante "delete", chiedere conferma della cancellazione, prima di eliminare l'elemento.
 
+# Terza Parte dell`Esercizio
+
+sempre lavorando sulla repo di ieri, potete aggiungere le validazioni in modo da rendere più stabile il vostro gestionale di fumetti.
+
+Bonus:
+validare gli input ricevuti in fase di creazione e modifica, rispondendo con errori chiari e in italiano.
+utilizzare le Request personalizzate per validare i dati
+Provate a gestire il titolo unico e validarlo in creazione e aggiornamento
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
